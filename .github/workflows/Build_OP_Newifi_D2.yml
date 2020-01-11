@@ -11,9 +11,9 @@ on:
   release:
     types: [published]
 
-  push:
-    branches: 
-      - master
+  #push:
+   # branches: 
+    #  - master
 
   #schedule:
   #  - cron: 0 8 * * 5
@@ -58,7 +58,7 @@ jobs:
         sudo -E apt-get clean
     - name: Clone source code
       env: 
-        REPO_URL: https://github.com/coolsnowwolf/lede
+        REPO_URL: https://github.com/coolsnowwolf/lede https://github.com/kuoruan/openwrt-v2ray.git https://github.com/kuoruan/luci-app-v2ray.git
         REPO_BRANCH: master
       run: git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
 
