@@ -11,9 +11,9 @@ on:
   release:
     types: [published]
 
-  push:
-    branches: 
-      - master
+  #push:
+  #  branches: 
+  #    - master
 
   #schedule:
   #  - cron: 0 8 * * 5
@@ -61,13 +61,6 @@ jobs:
         REPO_URL: https://github.com/coolsnowwolf/lede
         REPO_BRANCH: master
       run: git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
-    - name: 自定义插件主题。
-      run: |
-        cd package
-        mkdir openwrt-packages
-        cd openwrt-packages
-        git clone https://github.com/hong0980/luci-app-passwall.git
-        git clone https://github.com/kuoruan/luci-app-v2ray.git
 
     - name: Update & Install feeds
       working-directory: ./openwrt
